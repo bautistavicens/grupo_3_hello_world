@@ -940,6 +940,11 @@ a{
     width: 50px;
     background-color: black;
  }
+ 
+.product-description-container{
+    border: 1px solid black;
+    text-align: center;
+ }
 
  #product-editBtn-container{
     align-items: center;
@@ -1775,6 +1780,12 @@ footer .copyright-container > small {
     .editar-producto-container .editar-producto-form .form-container-2 .section-3 .talle-precio-subcontainer {
         justify-content: space-evenly;
     }
+    
+    .product-description-container{
+        margin: 0px 5% 10% 5% ;
+     }
+        
+        /*editProduct.ejs - START*/
 
         /*newProduct.ejs - START*/
 
@@ -2228,9 +2239,15 @@ footer .copyright-container > small {
         height: 180px;
         width: 180px;
     }
+
+    .product-description-container{
+        margin: 0px 12% 10% 12% ;
+     }
+    
     #product-editBtn-container{
         right: 3%;
     }
+
     /* productDetail.ejs - END */
 
     /*register.html - START*/

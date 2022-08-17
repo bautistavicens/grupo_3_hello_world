@@ -15,9 +15,23 @@
          </span>
         <% } else { %>
          <span class="item">
-            <a href="/usuarios/profile" class="item-link">
+            <a href="/usuarios/perfil" class="item-link">
                 <i class="fa-solid fa-user"></i>
                 <small class="text uppercase">Mi perfil</small>
+            </a>
+        </span>
+        <% if (locals.isAdmin) { %>
+            <span class="item">
+                <a href="#" class="item-link">
+                    <i class="fa-solid fa-gears"></i>
+                    <small class="text uppercase">Admin</small>
+                </a>
+            </span>
+        <% } %>
+        <span class="item">
+            <a href="#" class="item-link">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <small class="text uppercase">Salir</small>
             </a>
         </span>
         <% } %>
