@@ -940,6 +940,43 @@ a{
     width: 50px;
     background-color: black;
  }
+
+ #product-editBtn-container{
+    align-items: center;
+    background-color: rgba(0, 141, 207, 0.568);
+    border-radius: 50%;
+    bottom: 5%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; 
+    height: 45px;
+    justify-content: center;
+    position: fixed;
+    right: 5%;
+    width: 45px;
+ }
+
+ #product-editBtn-container .btn-link .fa-pen{
+    font-size: x-large;
+    color: white;
+
+    
+ }
+
+ #product-editBtn-container:hover{
+    animation: movimiento 400ms infinite alternate;
+}
+
+@keyframes movimiento {
+    0%{
+        transform: rotate(-25deg) ;
+    }
+    100%{
+        transform: rotate(25deg) ;
+    }
+}
+
     /* productDetail.ejs - END */
 
     /* productList.ejs- START */
@@ -2191,7 +2228,9 @@ footer .copyright-container > small {
         height: 180px;
         width: 180px;
     }
-
+    #product-editBtn-container{
+        right: 3%;
+    }
     /* productDetail.ejs - END */
 
     /*register.html - START*/
