@@ -67,11 +67,13 @@
           <% }); %> 
         </div>
     </section>
-    <div id="product-editBtn-container">
-      <a href="/productos/<%= product.id %>/editar"  class="btn-link">
-        <i class="fa-solid fa-pen"></i>
-      </a>
-    </div>
+    <% if (isAdmin == true) { %>
+      <div id="product-editBtn-container">
+        <a href="/productos/<%= product.id %>/editar"  class="btn-link">
+          <i class="fa-solid fa-pen"></i>
+        </a>
+      </div>
+    <% } %>
     </main>
     <%- include('../partials/footerPrincipal') %>
   </body>
