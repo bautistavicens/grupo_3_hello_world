@@ -32,7 +32,8 @@ router.post('/register', usersMulter().single('profile-pic'), registerValidation
 
 /*+++++++++++++++++++++ Profile +++++++++++++++++++++++*/
 router.get('/perfil', userController.displayProfile);
-router.get('/salir', userController.displayProfile);
+router.get('/salir', userController.logOut);
+
 /*+++++++++++++++++++++ Show User By ID +++++++++++++++++++++++*/
 router.get('/:id', userDetailAuthorization, userController.displayUser);
 router.put('/:id/editar', usersMulter().single('profile-pic'), userController.editUser);

@@ -12,7 +12,7 @@ function userLoggedMiddleware (req, res, next){
         userCategoryService.getByName("Administrador")
             .then(category =>{
                 //check if user category is "Adminsitrador"
-                if(category.id == req.session.loggedUser.category_id){
+                if(req.session && category.id == req.session.loggedUser.category_id){
                     res.locals.isAdmin = true;
                 }
             })
