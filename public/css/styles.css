@@ -178,6 +178,11 @@ a{
 .contenedor-productos-home .elements-subcontainer{
     margin: 15px;
     box-shadow: 0 1px 8px #ddd;
+    transition: box-shadow 0.7s;
+}
+
+.contenedor-productos-home .elements-subcontainer:hover{
+    box-shadow: 5px 10px 8px 10px #888888;
 }
 
 .contenedor-productos-home .elements-subcontainer .img-container > img{
@@ -218,6 +223,10 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.contenedor-productos-home .elements-subcontainer:hover >.truck-icon-container .fa-truck{
+    animation: movimiento 400ms infinite alternate;
 }
 
 .home-ofertas-titulo{
@@ -1108,12 +1117,19 @@ a{
     margin-bottom: 12px;
     margin-top: 12px;
     height: 334px;
+    transition: box-shadow 0.7s;
 
 }
+
+.products-list-container .enlace .product-container:hover{
+    box-shadow: 5px 10px 8px 10px #888888;
+}
+
 .products-list-container .enlace .product-container .image-container{
     width: 280px;
     text-align: center;
 }
+
 .products-list-container .enlace .product-container .image-container > img{
     width: 218px;
     height: 218px;
@@ -1169,7 +1185,7 @@ a{
     position: absolute;
     top: 10px;
     right: -125px;
-    transition: font-size all 2ms ;
+    transition: font-size 2ms ;
 }
 
 .products-list-container .enlace .product-container .trashcan-icon-container .fa-trash-can:hover{
@@ -1178,6 +1194,10 @@ a{
 
 .products-list-container .enlace .product-container .truck-icon-container{
     position: relative;
+
+}
+.products-list-container .enlace .product-container:hover >.truck-icon-container .fa-truck{
+    animation: movimiento 400ms infinite alternate;
 }
 
 .products-list-container .enlace .product-container .truck-icon-container .fa-truck {

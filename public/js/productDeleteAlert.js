@@ -1,11 +1,9 @@
-//@Author: Bautista
-
 //Get product delete button 
-const deleteBtn = document.querySelectorAll("#delete-button");
+let deleteBtns = document.querySelectorAll("#delete-button");
     
 //listen to click 
-deleteBtn.forEach(btn => {
-    addEventListener("click" , (e) =>{
+for(let button of deleteBtns){}
+    button.addEventListener("click" , (e) =>{
         //display confirm popup
         let result = confirm("¿Seguro desea eliminar el producto?");
     
@@ -18,4 +16,4 @@ deleteBtn.forEach(btn => {
             e.preventDefault();
         }
     });
-});
+};
