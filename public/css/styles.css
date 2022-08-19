@@ -193,13 +193,16 @@ a{
 .contenedor-productos-home .elements-subcontainer .descripcion-container > p{
     text-align: center;
     font-size: 14px;
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 5px;
+    
 }
 
 .contenedor-productos-home .elements-subcontainer .descripcion-container .descuento{
     color: #00a650;
 }
 .contenedor-productos-home .elements-subcontainer .descripcion-container .titulo{
+    font-size: 1em;
     font-weight: bold;
 }
 
@@ -1165,7 +1168,8 @@ a{
 }
 
 .products-list-container .enlace .product-container .title-container .title{
-    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
     margin-bottom: 0px;
     text-align: center;
 }
