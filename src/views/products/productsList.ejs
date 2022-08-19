@@ -15,6 +15,12 @@
                 <% products.forEach(product => { %> 
                     <a href="/productos/<%= product.id %>" class="enlace">
                         <article class="product-container">
+                            <% if (isAdmin == true) { %>
+                                <form action="/productos/<%= product.id %>/eliminar?_method=DELETE" method="POST"  id="delete-form" class="trashcan-icon-container" enctype="application/json">
+                                    <button type="submit" id="delete-button" class="fa-solid fa-trash-can"></button>
+                                </form>
+                                <script src="/js/productDeleteAlert.js"></script>
+                            <% } %>
                             <section class="image-container">
                                 <img src="/images/products<%= product.productImages[0].image_path %>" alt="product-img">
                             </section>
@@ -49,6 +55,13 @@
                     </a>
                 <% }) %>
             </section>
+            <% if (isAdmin == true) { %>
+                <div id="product-addBtn-container">
+                  <a href="/productos/nuevo"  class="btn-link">
+                    <i class="fa-solid fa-circle-plus"></i>
+                  </a>
+                </div>
+              <% } %>
         </main>
         <%- include('../partials/footerPrincipal') %>
     </body>

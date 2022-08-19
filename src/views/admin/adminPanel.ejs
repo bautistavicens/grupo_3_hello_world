@@ -1,12 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-    <%- include('./partials/head') %>
+<html lang="es">
+    <%- include('../partials/head') %>
 <body>
-    <%- include('./partials/header') %>
-    <%- include('./partials/mobileNavBar') %>
+    <%- include('../partials/header') %>
+    <%- include('../partials/mobileNavBar') %>
     <main class="admin-panel-main">
-
+        <section class="admin-panel-container">
+            <div class="panel-title-subcontainer">
+                <h1>Admin Panel</h1>
+            </div>
+            
+            <div class="panel-style-container">
+                <a href="">
+                    <article class="panel-item">
+                        Añadir producto
+                    </article>
+                </a>
+                <a href="">
+                    <article class="panel-item">
+                        Usuarios
+                    </article>
+                </a>
+                <a href="">
+                    <article class="panel-item">
+                        Eliminar producto
+                    </article>
+                </a>
+            </div>
+        </section>
     </main>
-    <%- include('./partials/footerPrincipal') %>
+
 </body>
 </html>
