@@ -35,6 +35,10 @@ const MainController = {
         res.render(path.join(__dirname, '../views/branches.ejs'));
     },
 
+    displayUs: function(req, res) {
+        res.render(path.join(__dirname, '../views/us.ejs'))
+    },
+
     displayComingSoon: function(req, res) {
         res.render(path.join(__dirname, '../views/comingSoon.ejs'));
     }

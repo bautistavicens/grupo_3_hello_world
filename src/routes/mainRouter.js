@@ -19,6 +19,8 @@ router.get('/sucursales', mainController.displayBranches);
 
 router.get('/building', mainController.displayComingSoon);
 
+router.get('/nosotros', mainController.displayUs)
+
 router.use('/usuarios', userRouter);
 
 router.use('/productos', productRouter);
