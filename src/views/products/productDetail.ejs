@@ -43,6 +43,9 @@
           <button class="producto-detalle-boton-carrito">Agregar al carrito</button>
         </div>
       </section>
+      <section class="product-description-container">
+        <p><%= product.description %> </p>
+      </section>
       <!-- Productos relacionados -->
       <h5 class="product-detail-productos-relacionados-title">PRODUCTOS RELACIONADOS</h5>
       <center>
@@ -64,6 +67,13 @@
           <% }); %> 
         </div>
     </section>
+    <% if (isAdmin == true) { %>
+      <div id="product-editBtn-container">
+        <a href="/productos/<%= product.id %>/editar"  class="btn-link">
+          <i class="fa-solid fa-pen"></i>
+        </a>
+      </div>
+    <% } %>
     </main>
     <%- include('../partials/footerPrincipal') %>
   </body>

@@ -31,9 +31,10 @@ router.get('/register', loginRegisterCancelation, userController.displayRegister
 router.post('/register', usersMulter().single('profile-pic'), registerValidations, userController.createUser);
 
 /*+++++++++++++++++++++ Profile +++++++++++++++++++++++*/
-router.get('/profile', userController.displayProfile);
+router.get('/perfil', userController.displayProfile);
+router.get('/salir', userController.logOut);
 
-/*+++++++++++++++++++++ Show User By ID +++++++++++++++++++++++*/
+/*+++++++++++++++++++++ User By ID +++++++++++++++++++++++*/
 router.get('/:id', userDetailAuthorization, userController.displayUser);
 router.put('/:id/editar', usersMulter().single('profile-pic'), userController.editUser);
 router.delete('/:id/eliminar', adminRoutes ,userController.deleteUser);

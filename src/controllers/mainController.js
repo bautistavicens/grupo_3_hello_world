@@ -1,4 +1,5 @@
 //Path Module.
+const { reset } = require('nodemon');
 const path = require('path');
 
 //Products Service
@@ -27,35 +28,19 @@ const MainController = {
                 productsWithDiscount: productsWithDiscount
             });
         });
-        //Si es el tamaño del array: "productos" es mayor al valor de la constante "minArraylenght" 
-        /*else{
 
-            //Sortear de manera aleatoria los elementos del array: "productos"
-            productos.sort(() => Math.random() > 0.5 ? 1 : -1);
-            
-            //Array de productos con porcentajeDescuento mayor a 0
-            productosEnOferta = productos.filter(producto =>{
-                if(producto.porcentajeDescuento > 0){
-                    return producto;
-                }
-            });
-
-            //Reducir tamaño de array a 4.
-            productosEnOferta = productosEnOferta.slice(0,4);
-
-            //Tomar 4 productos del array productos.
-            productosDestacadosArray = productos.slice(0,4);
-
-            res.render(path.join(__dirname, '../views/home.ejs'), 
-            {
-                productos: productosDestacadosArray, 
-                productosEnOferta: productosEnOferta
-            });
-        }*/
     },
     
-    displayBranches: function(req, res){
+    displayBranches: function(req, res) {
         res.render(path.join(__dirname, '../views/branches.ejs'));
+    },
+
+    displayUs: function(req, res) {
+        res.render(path.join(__dirname, '../views/us.ejs'))
+    },
+
+    displayComingSoon: function(req, res) {
+        res.render(path.join(__dirname, '../views/comingSoon.ejs'));
     }
 }
 

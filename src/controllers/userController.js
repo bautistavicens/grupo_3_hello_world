@@ -248,8 +248,13 @@ const UserController = {
           old: req.body
         });
       }
-    }
+    },
 
+    logOut: function(req, res){
+      res.clearCookie("rememberMe");
+      req.session.destroy();
+      res.redirect('/');
+    }
 }
 
 //Export.

@@ -66,14 +66,14 @@ app.use(session(
     /*For Cookies*/
 app.use(cookieParser());
 
-//Cors for client to consume API.
-app.use(cors());
-
 //For cookie "rememberMe" analyzation 
 app.use(accountRememberer);
 
-//To hide profile or register and login buttons
+//To hide admin, profile or register and login buttons
 app.use(userLoggedMiddleware);
+
+//Cors for client to consume API.
+app.use(cors());
 
 // For View Engine
 app.set("view engine", "ejs");

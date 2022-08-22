@@ -4,8 +4,8 @@
             <li class="menu-item"><a href="/" class="item-link">Home</a></li>
             <li class="menu-item"><a href="/productos" class="item-link">Productos</a></li>
             <li class="menu-item"><a href="/sucursales" class="item-link">Sucursales</a></li>
-            <li class="menu-item"><a href="#" class="item-link">Nosotros</a></li>
-            <li class="menu-item"><a href="#" class="item-link">Contacto</a></li>
+            <li class="menu-item"><a href="/nosotros#" class="item-link">Nosotros</a></li>
+            <li class="menu-item"><a href="/building" class="item-link">Contacto</a></li>
         </ul>
         <ul class="submenu-container-2">
             <% if (!locals.isLogged) { %>
@@ -24,9 +24,15 @@
             
             <% } else { %>
                 <li class="menu-item" id="profile-btn">
-                    <a href="/usuarios/profile" class="item-link">
+                    <a href="/usuarios/perfil" class="item-link">
                         <i class="fa-solid fa-user"></i>
                         Mi perfil
+                    </a>
+                </li>
+                <li class="menu-item" id="logout-btn">
+                    <a href="/usuarios/salir" class="item-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Salir
                     </a>
                 </li>
             <% } %>

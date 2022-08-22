@@ -13,6 +13,7 @@ const productService = require('../services/ProductService.js');
 const productCategoryService = require('../services/ProductCategoryService.js');
 const sizesService = require('../services/SizesService.js');
 const productImageService = require('../services/ProductImageService.js');
+const userCategoryService = require('../services/UserCategoryService.js');
 /*-------------------------------------------------------------------------*/
 
 
@@ -30,14 +31,27 @@ const ProductController = {
         /*Get product where product.id = req.params.id from database*/
         const product = productService.getById(req.params.id)
 
+        const adminCategory = userCategoryService.getByName("Administrador");
+
+        let isAdmin = false;
+
         /*fulfill all promises*/
-        Promise.all([relationatedProducts, product])
+        Promise.all([relationatedProducts, product, adminCategory])
 
-            .then(([relationatedProducts, product]) => {
+            .then(([relationatedProducts, product, adminCategory]) => {
 
+                //check if user is admin
+                if(req.session.loggedUser && req.session.loggedUser.category_id == adminCategory.id) {
+                    isAdmin = true;
+                }
                 if(product != null){
                     //show product
-                    res.render(path.join(__dirname, '../views/products/productDetail.ejs'), {product: product, relationatedProducts: relationatedProducts});
+                    res.render(path.join(__dirname, '../views/products/productDetail.ejs'), 
+                    {
+                        product: product, 
+                        relationatedProducts: relationatedProducts,
+                        isAdmin: isAdmin
+                    });
                 }
                 else{
                     res.send("ERROR!. \nProducto no encontrado!")
@@ -52,11 +66,27 @@ const ProductController = {
     //list products
     displayAll: function(req, res){
         
-        //get all products
-        productService.getAllWithBrandAndImages()
-            .then((products) => {
+        let isAdmin = false;
+
+        //Get all products
+        const products = productService.getAllWithBrandAndImages();
+
+        //get RAdministrador" category
+        const adminCategory = userCategoryService.getByName("Administrador");
+        
+        Promise.all([products, adminCategory])
+            .then(([products, adminCategory]) => {
+
+                //check if user is admin
+                if(req.session.loggedUser && req.session.loggedUser.category_id == adminCategory.id) {
+                    isAdmin = true;
+                }
                 //list products
-                res.render(path.join(__dirname, '../views/products/productsList.ejs'), {products : products});
+                res.render(path.join(__dirname, '../views/products/productsList.ejs'), 
+                {
+                    products: products,
+                    isAdmin: isAdmin
+                });
             })
             .catch((error) =>{
                 console.log(error);
@@ -76,17 +106,18 @@ const ProductController = {
 
         //Get product categories from Dataabse
         const productCategories = productCategoryService.getAll();
-
+        
         //Fulfill all promises
-        Promise.all([product, productCategories, sizes])
-            
-            //render newProduct.ejs
+        Promise.all([product, productCategories, sizes])    
+                
             .then(([product, productCategories, sizes]) => {
+
+                //render newProduct.ejs
                 res.render(path.join(__dirname, '../views/products/editProduct.ejs'),
                 {
                     product: product,  
                     categories: productCategories,  
-                    sizes: sizes 
+                    sizes: sizes
                 });
             });
             
@@ -138,7 +169,7 @@ const ProductController = {
 
         //Get images info and generate array with image paths
         let newProductImages =  req.files.map(file =>{
-            return  file.filename;
+            return  "/" + file.filename;
         }) 
 
         //Link image with Product
