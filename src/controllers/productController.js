@@ -169,7 +169,7 @@ const ProductController = {
 
         //Get images info and generate array with image paths
         let newProductImages =  req.files.map(file =>{
-            return  file.filename;
+            return  "/" + file.filename;
         }) 
 
         //Link image with Product
