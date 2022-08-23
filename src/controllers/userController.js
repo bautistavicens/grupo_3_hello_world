@@ -149,7 +149,7 @@ const UserController = {
 
         let newUserData = {
           firstName: req.body.firstName ? req.body.firstName : user.firstName,
-          lastName: req.body.lastName ? req.body.firstName : user.lastName,
+          lastName: req.body.lastName ? req.body.lastName : user.lastName,
           address: req.body.address ? req.body.address : user.address,
           zipCode: req.body.zipCode ? req.body.zipCode : user.zipCode,
           city: req.body.city ? req.body.city : user.city,
