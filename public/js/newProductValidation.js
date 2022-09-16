@@ -16,8 +16,8 @@ window.addEventListener("load",function(){
     titulo.addEventListener("blur", function(){
         if(titulo.value.length < 5){
             // alert("Este campo debe tener 5 caracteres")
-            alertaTitulo.textContent = "Este campo debe tener minimo 5 caracteres";
-            alertaTitulo.style.color = "red";
+            alertaTitulo.textContent = "Este campo debe tener un minimo de 5 caracteres";
+            alertaTitulo.style.color = "#e98c00";
         }else{
             alertaTitulo.textContent = "";
         }
@@ -26,7 +26,7 @@ window.addEventListener("load",function(){
     color.addEventListener("blur", function(){
         if(color.value == ""){
             alertaColor.textContent = "Este campo es obligatorio";
-            alertaColor.style.color = "red";
+            alertaColor.style.color = "#e98c00";
         }else{
             alertaColor.textContent = "";
         }
@@ -34,8 +34,8 @@ window.addEventListener("load",function(){
 
     descripcion.addEventListener("blur", function(){
         if(descripcion.value.length < 20){
-            alertaDescripcion.textContent = "Este campo debe tener minimo 20 caracteres";
-            alertaDescripcion.style.color = "red";
+            alertaDescripcion.textContent = "Este campo debe tener un minimo de 20 caracteres";
+            alertaDescripcion.style.color = "#e98c00";
         }else{
             alertaDescripcion.textContent = "";
         }
@@ -44,7 +44,7 @@ window.addEventListener("load",function(){
     precio.addEventListener("blur", function(){
         if(precio.value == ""){
             alertaPrecio.textContent = "Este campo es obligatorio"
-            alertaPrecio.style.color = "red";
+            alertaPrecio.style.color = "#e98c00ed";
         }else{
             alertaPrecio.textContent = "";
         }
@@ -56,7 +56,7 @@ window.addEventListener("load",function(){
 
         if(!extenciones.exec(nuevaImagen)){
             alertaImagen.textContent = 'Extensión no permitida. Utiliza: .jpeg/.jpg/.png/.gif.';
-            alertaImagen.style.color = "red";
+            alertaImagen.style.color = "#e98c00";
             imagen.value = "";
             return;
         }else{

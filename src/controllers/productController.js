@@ -5,7 +5,6 @@ const path = require('path');
 
 //fs Module.
 const fs = require("fs");
-const { fdatasyncSync, fstat } = require('fs');
 
 /*-------------------------------SERVICES----------------------------------*/
 
@@ -228,7 +227,7 @@ const ProductController = {
        
         await productService.delete(req.params.id);
 
-        res.redirect('/');
+        res.redirect('/productos');
         
     }      
 }

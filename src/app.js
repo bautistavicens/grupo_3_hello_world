@@ -48,7 +48,7 @@ app.use(express.static("public"));
     /*For Json*/
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-    /*For Storage*/
+
 app.use(morgan("dev"));
 
     /*For PUT & DELETE */
