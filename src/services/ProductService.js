@@ -9,7 +9,7 @@ const ProductService = {
 
     getById: async function(id){
         try{
-            const product = db.Product.findByPk(id,
+            const product = await db.Product.findByPk(id,
                 {
                     include: [ 
                         {association: "productBrand"},

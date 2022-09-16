@@ -6,7 +6,7 @@ const cartController = {
 
     display: async function(req, res){
         const user = req.session.loggedUser;
-        
+        console.log(user.cart_id);
         const userCart = await cartService.getById(user.cart_id); 
 
         res.json(userCart);

@@ -6,19 +6,19 @@ const CartService = {
 
     getById: async function(id){
         try{
-            const product = db.Product.findByPk(id,
+            const cart = await db.Carts.findByPk(id,
                 {
                     include: [ 
-                        {association: "CartProducts"},
+                        {association: "Products"},
                     ],
                 }
             );
 
-        return product;
+        return cart;
 
         }catch(error){
             console.log(error);
-            console.log("No se ha encontrado el producto #" + id);
+            console.log("No se ha encontrado el carrito #" + id);
         }
     }
 }
