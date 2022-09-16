@@ -39,6 +39,18 @@ CREATE TABLE `CARTS`(
     
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+LOCK TABLES `CARTS` WRITE;
+/*!40000 ALTER TABLE `CARTS` DISABLE KEYS */;
+
+INSERT INTO `CARTS` VALUES 
+	(1, NULL, NULL),
+	(2, NULL, NULL),
+    (3, NULL, NULL),
+	(4, NULL, NULL),
+    (5, NULL, NULL);
+    
+/*!40000 ALTER TABLE `CARTS` ENABLE KEYS */;
+UNLOCK TABLES;
 
 	/*Security Questions - Table*/
 DROP TABLE IF EXISTS `SECURITY_QUESTIONS`;
@@ -98,10 +110,10 @@ LOCK TABLES `USERS` WRITE;
 
 INSERT INTO `USERS` (`ID`, `FIRST_NAME`, `LAST_NAME`, `ADDRESS`, `ZIP_CODE`, `CITY`, `PROVINCE`, `TELEPHONE`, `GENDER`, `EMAIL`, `PASSWORD`, `SECURITY_QUESTION_ID`, `SECURITY_ANSWER`, `IMAGE`, `CATEGORY_ID`, `CART_ID`) VALUES  
     (1, "Hugo", "Nail", "Roseti 96", "1427", "Capital Federal", "Buenos Aires", "1155628975", "Masculino", "hnail0@hotmail.com", "XFUQp6g", 1, "flopi", "/default_profile_pic.png", 1, 1),
-    (2, "Marcelo", "Cavala", "Intendente Becco 864", "1642", "San Isidro", "Buenos Aires", "1164558921", "Masculino", "marcelocavala20120@gmail.com", "tssPlG2", 2, "fútbol", "/default_profile_pic.png", 1, NULL),
-    (3, "Juan",  "Carlos", "Arnaldo 364", "2930", "San Pedro", "Buenos Aires", "3329659874", "Masculino", "juancaboca@gmail.com", "$2a$10$zQaXd2NLuMZOFg2ywUffWeRVTkHKZTqnhl.064Py/RZ7b5SVOAK.m", 3, "risoto", "/default_profile_pic.png", 1, NULL),
-	(4, "Maria Estela", "Suarez", "Balcarce 312", "2900", "San Nicolas", "Buenos Aires", "336269678", "Femenino", "marysuarez@live.com", "$2a$10$ifaU9rBP0zNE.mAV.5Os1Oa2vD.edR7KcwqmBSr/lw5a9IcmPSrmK", 1, "chiara", "/profile-pic-1655877593406.jpg", 1, NULL),
-	(5, "Carla", "Lopez", "Billinghurst 1148", "1174", "Capital Federal", "Buenos Aires", "1145671533", "Femenino", "carlopez@live.com", "$2a$10$5vspphVY/e6yg4GNClfvlOmVyaF4HHlHrNZRlUKuvL5v444JbUc0q", 2, "mario bros", "/profile-pic-1658090887437.jpg", 2, NULL);
+    (2, "Marcelo", "Cavala", "Intendente Becco 864", "1642", "San Isidro", "Buenos Aires", "1164558921", "Masculino", "marcelocavala20120@gmail.com", "tssPlG2", 2, "fútbol", "/default_profile_pic.png", 1, 2),
+    (3, "Juan",  "Carlos", "Arnaldo 364", "2930", "San Pedro", "Buenos Aires", "3329659874", "Masculino", "juancaboca@gmail.com", "$2a$10$zQaXd2NLuMZOFg2ywUffWeRVTkHKZTqnhl.064Py/RZ7b5SVOAK.m", 3, "risoto", "/default_profile_pic.png", 1, 3),
+	(4, "Maria Estela", "Suarez", "Balcarce 312", "2900", "San Nicolas", "Buenos Aires", "336269678", "Femenino", "marysuarez@live.com", "$2a$10$ifaU9rBP0zNE.mAV.5Os1Oa2vD.edR7KcwqmBSr/lw5a9IcmPSrmK", 1, "chiara", "/profile-pic-1655877593406.jpg", 1, 4),
+	(5, "Carla", "Lopez", "Billinghurst 1148", "1174", "Capital Federal", "Buenos Aires", "1145671533", "Femenino", "carlopez@live.com", "$2a$10$5vspphVY/e6yg4GNClfvlOmVyaF4HHlHrNZRlUKuvL5v444JbUc0q", 2, "mario bros", "/profile-pic-1658090887437.jpg", 2, 5);
     
 /*!40000 ALTER TABLE `USERS` ENABLE KEYS */;
 UNLOCK TABLES;

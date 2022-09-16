@@ -7,4 +7,6 @@ const userRoutes = require('../middlewares/userRoutes.js');
 
 router.get('/', userRoutes, cartController.display);
 
+router.get('/:id', userRoutes, cartController.display);
+
 module.exports = router;

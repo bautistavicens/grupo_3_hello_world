@@ -72,9 +72,7 @@ const UserController = {
         if(user == undefined){
           return res.redirect('/usuarios/login');
         }
-        else{
-          return res.redirect('/usuarios/' + user.id);
-        }
+        return res.redirect('/usuarios/' + user.id);
     },
 
     createUser: async (req, res) => {

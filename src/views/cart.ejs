@@ -23,14 +23,17 @@
             </div>
         </section>
        <section>
+            <% products.forEach(product => { %>
             <article class="product-container">
                 <section class="sub-container-botonera-container">
                     <section class="sub-container-1">
-                        <img class="product-img"src="/images/products/zapato_cuero_suela_1.jpg" alt="Producto">
+                        <img class="product-img"src="/images/products/<%= product.productImages[0].image_path %>" alt="Producto">
                         <div class="product-title-off-price-conteiner">
-                            <h4 class="product-title">Titulo</h4>
-                            <p class="product-off">%Off</p>
-                            <p class="product-price-mobile">$$$$$$$</p>
+                            <h4 class="product-title"><%= product.productBrand.name %></h4>
+                            <%  if (product.discount_percentage > 0) { %>
+                                <p class="product-off"> <%= product.discount_percentage %>% Off</p>
+                              <% } %>
+                            <p class="product-price-mobile"><%= product.price %></p>
                         </div>
                     </section>
                     <section class="botonera">
@@ -69,98 +72,7 @@
                     </div>
                 </section>
             </article>
-            <article class="product-container">
-                <section class="sub-container-botonera-container">
-                    <section class="sub-container-1">
-                        <img class="product-img"src="/images/products/zapato_cuero_punta_negro_1.jpg" alt="Producto">
-                        <div class="product-title-off-price-conteiner">
-                            <h4 class="product-title">Titulo</h4>
-                            <p class="product-off">%Off</p>
-                            <p class="product-price-mobile">$$$$$$$</p>
-                        </div>
-                    </section>
-                    <section class="botonera">
-                        <button><i class="fa-solid fa-trash" id="btn-icon"></i>Eliminar</button>
-                        <button><i class="fa-solid fa-bookmark" id="btn-icon"></i>Agregar a favoritos</button>
-                    </section>
-                </section>
-                <section class="description-container">
-                    <div  class="description-subcontainer">
-                        <p class="title">Color:</p>
-                        <p class="value">xxxxx</p>
-                    </div>
-                    <div class="description-subcontainer">
-                        <p class="title">Talle:</p>
-                        <p class="value">xxxxx</p>
-                    </div>
-                    <div class="description-subcontainer">
-                        <p class="title">Cantidad:</p> 
-                        <select name="cantidad-value" id="select-cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">4</option>
-                        </select>
-                    </div>  
-                </section>
-                <section class="price-container-desktop">
-                    <div class="sub-container-1">
-                        <p class="title">Precio unitario:</p>
-                        <p class="price">$$$$$$$$$</p>
-                    </div>
-                    <div class="sub-container-2">
-                        <p class="title">Total:</p>
-                        <p class="total">$$$$$$$$$</p>
-                    </div>
-                </section>
-            </article>
-            <article class="product-container">
-                <section class="sub-container-botonera-container">
-                    <section class="sub-container-1">
-                        <img class="product-img"src="/images/products/bota_chelsea_cuero_negro_1.jpg" alt="Producto">
-                        <div class="product-title-off-price-conteiner">
-                            <h4 class="product-title">Titulo</h4>
-                            <p class="product-off">%Off</p>
-                            <p class="product-price-mobile">$$$$$$$</p>
-                        </div>
-                    </section>
-                    <section class="botonera">
-                        <button><i class="fa-solid fa-trash" id="btn-icon"></i>Eliminar</button>
-                        <button><i class="fa-solid fa-bookmark" id="btn-icon"></i>Agregar a favoritos</button>
-                    </section>
-                </section>
-                <section class="description-container">
-                    <div  class="description-subcontainer">
-                        <p class="title">Color:</p>
-                        <p class="value">xxxxx</p>
-                    </div>
-                    <div class="description-subcontainer">
-                        <p class="title">Talle:</p>
-                        <p class="value">xxxxx</p>
-                    </div>
-                    <div class="description-subcontainer">
-                        <p class="title">Cantidad:</p> 
-                        <select name="cantidad-value" id="select-cantidad">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">4</option>
-                        </select>
-                    </div>
-                </section>
-                <section class="price-container-desktop">
-                    <div class="sub-container-1">
-                        <p class="title">Precio unitario:</p>
-                        <p class="price">$$$$$$$$$</p>
-                    </div>
-                    <div class="sub-container-2">
-                        <p class="title">Total:</p>
-                        <p class="total">$$$$$$$$$</p>
-                    </div>
-                </section>
-            </article>
+            <% }) %>
        </section>
        <section class="finalizar-compra-section">
             <section class="discount-container">
