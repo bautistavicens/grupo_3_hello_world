@@ -20,6 +20,18 @@ const CartService = {
             console.log(error);
             console.log("No se ha encontrado el carrito #" + id);
         }
+    },
+
+    addProduct: async function(cartId, product, quantity) {
+        try {
+            const cart = this.getById(cartId);
+            
+            await cart.addProduct(product, { through: { quantity: quantity} });
+
+
+        } catch(error) {
+            console.log()
+        }
     }
 }
 

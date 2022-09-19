@@ -4,56 +4,81 @@
   <body>
     <%- include('../partials/header') %>
     <%- include('../partials/mobileNavBar') %>
-    <main>
+    <main class="main-product-detail">
       <!--Producto-->
-      <section class="contenedor-producto-detalle">
-        <div class="producto-detalle-caja-1">
-          <!--Imagen-->
-          <img src="/images/products/<%= product.productImages[0].image_path %>" class="producto-detalle-img" alt="Zapato"/>
-        </div>
-        <!-- Contenedor Titulo & Precio--> 
-        <div class="producto-detalle-caja-2">
-          <h2 class="titulo"> <%= product.productBrand.name %> </h2>
-          <p class="precio">$<%= product.price %> </p>
-          <%  if (product.discount_percentage > 0) { %>
-            <p class="descuento"> <%= product.discount_percentage %>% Off</p>
-          <% } %>
-          <!--Sizes-->
-          <h4 class="talles-titulo"> Talles </h4>
-          <select name="producto-detalle-talles" id="select-cantidad">
-            <!--forEach -> Sizes -->
-            <optgroup label="EUR"></optgroup>
-            <% product.Sizes.forEach(size => { %>
-              <% if ( size.type  == "EUR") { %>
-                <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
-                <% } %>       
-            <% }) %>
-            <optgroup label="CM"></optgroup>
-            <% product.Sizes.forEach(size => { %>
-              <% if ( size.type  == "CM") { %>
-                <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
-              <% } %>      
-            <% }) %>
-          </select>
-          <h4 class="seleccionar-color-titulo"> Seleccionar Color: </h4>
-          <div class="producto-detalle-colores-container">
-            <span class="color"> <%= product.color %> </span>
-          </div>
-          <hr class="producto-detalle-linea"> 
-          <button class="producto-detalle-boton-carrito">Agregar al carrito</button>
-        </div>
-      </section>
-      <section class="product-description-container">
-        <p><%= product.description %> </p>
-      </section>
+      <form class="product-container">
+        <article class="product-subcontainer-1">
+          <!--Brand name-->
+          <h1 class="main-title"> <%= product.productBrand.name %> </h2>
+          <!--Image-->
+          <img src="/images/products/<%= product.productImages[0].image_path %>" class="product-image" alt="Zapato"/>
+        </article>
+
+        <article class="product-subcontainer-2">
+          <!--Price & Discount - section-->
+          <section class="price-discount-section">
+            <!--If product has %Off-->
+            <% if (product.discount_percentage> 0) { %>
+              <div>
+                <!--Price without discount-->
+                <p class="price"><del> $<%= product.price %> </del></p>
+            
+                <!--%Off-->
+                <p class="discount"> <%= product.discount_percentage %>% Off </p>
+              </div>
+              <!--Price with discount-->
+              <p class="price-with-discount"> $<%= product.price - ((product.price * product.discount_percentage) / 100) %> </p>
+            
+              <!--If not-->
+              <% } else { %>
+                <!--Price-->
+                <p class="price"> $<%= product.price %> </p>
+              <% } %>
+          </section>
+          <!--Sizes - section-->
+          <section>
+            <h4 class="sizes-subtitle"> Talles </h4>
+            <select name="producto-detalle-talles" id="select-cantidad">
+              <!--forEach -> Sizes -->
+              <optgroup label="EUR"></optgroup>
+              <% product.Sizes.forEach(size => { %>
+                <% if ( size.type  == "EUR") { %>
+                  <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
+                  <% } %>       
+              <% }) %>
+              <optgroup label="CM"></optgroup>
+              <% product.Sizes.forEach(size => { %>
+                <% if ( size.type  == "CM") { %>
+                  <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
+                <% } %>      
+              <% }) %>
+            </select>
+          </section>
+          <!--Color - section-->
+          <section class="color-section">
+            <p class="color"> <%= product.color %> </p>
+          </section>
+          <section class="buttons-section">
+            <hr class="producto-detalle-linea">
+            <button type="submit" class="add-product-btn">Agregar al carrito</button>
+          </section>
+        </article>
+        <article class="product-subcontainer-3">
+          <!--Description - section-->
+          <section class="description-section">
+            <p><%= product.description %> </p>
+          </section>
+        </article>
+      </form>
+
       <!-- Productos relacionados -->
-      <h5 class="product-detail-productos-relacionados-title">PRODUCTOS RELACIONADOS</h5>
+      <!--<h5 class="product-detail-productos-relacionados-title">PRODUCTOS RELACIONADOS</h5>
       <center>
         <hr class="product-detail-destacados-hr"> 
       </center>
       <section class="productos-relacionados-container">
         <div class="child-container">
-          <!-- Solucionar problema <a> -->
+          Solucionar problema <a> 
           <% relationatedProducts.forEach(element => { %>
             <a href="/productos/<%= element.id %>">
             <article class="flex-item">
@@ -66,7 +91,7 @@
           </a>            
           <% }); %> 
         </div>
-    </section>
+    </section>-->
     <% if (isAdmin == true) { %>
       <div id="product-editBtn-container">
         <a href="/productos/<%= product.id %>/editar"  class="btn-link">

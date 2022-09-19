@@ -7,6 +7,10 @@ const userRoutes = require('../middlewares/userRoutes.js');
 
 router.get('/', userRoutes, cartController.display);
 
+router.post('/add', userRoutes, cartController.addProduct);
+
 router.get('/:id', userRoutes, cartController.display);
+
+
 
 module.exports = router;
