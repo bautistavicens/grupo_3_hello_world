@@ -11,13 +11,13 @@ const cartController = {
         res.json(userCart);
 
     },
-    
+
     addProduct: async function(req, res) {
         const userCartId = req.session.loggedUser.cart_id;
 
-        const quantity = null /*get quantity from req.body*/;
+        const quantity = req.body.quantity;
 
-        const product = await productService.getById(/*get id from req.body*/);
+        const product = await productService.getById(req.params.id);
 
         cartService.addProduct(userCartId, product, quantity)
 

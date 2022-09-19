@@ -6,7 +6,7 @@
     <%- include('../partials/mobileNavBar') %>
     <main class="main-product-detail">
       <!--Producto-->
-      <form class="product-container">
+      <section class="product-container">
         <article class="product-subcontainer-1">
           <!--Brand name-->
           <h1 class="main-title"> <%= product.productBrand.name %> </h2>
@@ -15,6 +15,34 @@
         </article>
 
         <article class="product-subcontainer-2">
+          <section class="buttons-size-section">
+            <form action="/cart/add/ <%= product.id %>" method="POST" class="add-product-form">
+              <!--Buttons - section-->
+              <article class="buttons-section">
+                <input type="number" min="0" max="10" value="0" name="quantity" class="quantity-counter" />
+                <button type="submit" class="add-product-btn">Agregar al carrito</button>
+              </article>
+              <!--Sizes - section-->
+              <article class="size-section">
+                <h4 class="sizes-subtitle"> Talles </h4>
+                <select name="producto-detalle-talles" id="select-cantidad">
+                  <!--forEach -> Sizes -->
+                  <optgroup label="EUR"></optgroup>
+                  <% product.Sizes.forEach(size => { %>
+                    <% if ( size.type  == "EUR") { %>
+                      <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
+                      <% } %>       
+                  <% }) %>
+                  <optgroup label="CM"></optgroup>
+                  <% product.Sizes.forEach(size => { %>
+                    <% if ( size.type  == "CM") { %>
+                      <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
+                    <% } %>      
+                  <% }) %>
+                </select>
+              </article>
+            </form>
+          </section>
           <!--Price & Discount - section-->
           <section class="price-discount-section">
             <!--If product has %Off-->
@@ -32,36 +60,15 @@
               <!--If not-->
               <% } else { %>
                 <!--Price-->
-                <p class="price"> $<%= product.price %> </p>
+                <p class="normal-price"> $<%= product.price %> </p>
               <% } %>
           </section>
-          <!--Sizes - section-->
-          <section>
-            <h4 class="sizes-subtitle"> Talles </h4>
-            <select name="producto-detalle-talles" id="select-cantidad">
-              <!--forEach -> Sizes -->
-              <optgroup label="EUR"></optgroup>
-              <% product.Sizes.forEach(size => { %>
-                <% if ( size.type  == "EUR") { %>
-                  <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
-                  <% } %>       
-              <% }) %>
-              <optgroup label="CM"></optgroup>
-              <% product.Sizes.forEach(size => { %>
-                <% if ( size.type  == "CM") { %>
-                  <option value= <%= size.id %> > <%= size.type  + " " + size.value %> </option>
-                <% } %>      
-              <% }) %>
-            </select>
-          </section>
+      
           <!--Color - section-->
           <section class="color-section">
             <p class="color"> <%= product.color %> </p>
           </section>
-          <section class="buttons-section">
-            <hr class="producto-detalle-linea">
-            <button type="submit" class="add-product-btn">Agregar al carrito</button>
-          </section>
+
         </article>
         <article class="product-subcontainer-3">
           <!--Description - section-->

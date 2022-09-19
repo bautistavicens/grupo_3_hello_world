@@ -1072,7 +1072,9 @@ a{
     display: flex;
     align-items: center;
     flex-direction: column;
+    height: 100%;
     justify-content: space-evenly;
+    overflow: auto;
 }
 
 .main-product-detail .product-container .product-subcontainer-1 {
@@ -1084,15 +1086,58 @@ a{
 .main-product-detail .product-container .product-subcontainer-1 .product-image{
     border: #000 1px solid;
     border-radius: 10px;
-    height: 20%;
+    height: 80%;
     padding: 1%;
-    width: 70%;
+    width: 80%;
 }
 
 .main-product-detail .product-container .product-subcontainer-2 {
     align-items: center;
     display: flex;
     flex-direction: column;
+    width: 100%;
+}
+.main-product-detail .product-container .product-subcontainer-2 .buttons-size-section{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.main-product-detail .product-container .product-subcontainer-2 .buttons-size-section .add-product-form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.main-product-detail .product-container .product-subcontainer-2 .buttons-size-section .add-product-form .buttons-section{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 50%;
+
+}
+.main-product-detail .product-container .product-subcontainer-2 .buttons-size-section .add-product-form .buttons-section .add-product-btn{
+    background: #3cbdaf;
+    border-radius: 2px;
+    color: #FFF;
+    padding: 8px; 
+    width: 140px;
+}
+.main-product-detail .product-container .product-subcontainer-2 .buttons-size-section .add-product-form .buttons-section .quantity-counter {
+    text-align: center;
+    width: 40px;
+    height: 31px;
+
+}
+
+.main-product-detail .product-container .product-subcontainer-2 .buttons-size-section .add-product-form .size-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-product-detail .product-container .product-subcontainer-2 .price-discount-section{
@@ -1102,14 +1147,28 @@ a{
     width: 100%;
 }
 
-.main-product-detail .product-container .product-subcontainer-2 .price-discount-section > div{
+.main-product-detail .product-container .product-subcontainer-2 .price-discount-section > div {
     align-items: center;
     display: flex;
     flex-direction: row;
     width: 100%;
 }
+
+.main-product-detail .product-container .product-subcontainer-2 .price-discount-section > div .discount{
+    color: #88ec83;
+}
 .main-product-detail .product-container .product-subcontainer-2 .price-discount-section > div > p{
     margin: 10px;
+}
+.main-product-detail .product-container .product-subcontainer-2 .price-discount-section .normal-price {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 15px;
+}
+.main-product-detail .product-container .product-subcontainer-2 .price-discount-section .price-with-discount {
+    font-weight: bold;
+    font-size: 20px;
+    margin-top: 7px;
 }
 
  #product-editBtn-container{
