@@ -625,6 +625,10 @@ a{
 
 
     /*mobileNavBar - END*/
+.cart-empty-product-container{
+    width:100%;
+    height: 30vh;
+}
 
 .finalizar-compra-section{
     display: flex;

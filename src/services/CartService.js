@@ -9,7 +9,17 @@ const CartService = {
             const cart = await db.Carts.findByPk(id,
                 {
                     include: [ 
-                        {association: "Products"},
+                        {
+                            association: "Products",
+                            include: [
+                                {association: "productBrand"},
+                                {association: "productImages"},
+                                {association: "productCategory"},
+                                {association: "Sizes"}
+                            ]
+
+                        },
+                        
                     ],
                 }
             );
