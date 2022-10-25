@@ -8,17 +8,15 @@ const SizesService = {
 
     getById: async function(id){
         try{
-            const size = await db.Sizes.findByPk(id)
-        
-             size;
+            const size = await db.Sizes.findByPk(id);
 
+            return size;
         } catch(error){
 
             console.log(error);
         }
-    
-        return size;
     },
+    
     getAll: async function() {
         try{
             const sizes = await db.Sizes.findAll()

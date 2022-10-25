@@ -16,7 +16,7 @@
 
         <article class="product-subcontainer-2">
           <section class="buttons-size-section">
-            <form action="/cart/add/ <%= product.id %>" method="POST" class="add-product-form">
+            <form action="/cart/add/<%= product.id %>" method="POST" class="add-product-form" enctype="application/json">
               <!--Buttons - section-->
               <article class="buttons-section">
                 <input type="number" min="0" max="10" value="0" name="quantity" class="quantity-counter" />
@@ -25,7 +25,7 @@
               <!--Sizes - section-->
               <article class="size-section">
                 <h4 class="sizes-subtitle"> Talles </h4>
-                <select name="producto-detalle-talles" id="select-cantidad">
+                <select name="selectedSizeId" id="select-cantidad">
                   <!--forEach -> Sizes -->
                   <optgroup label="EUR"></optgroup>
                   <% product.Sizes.forEach(size => { %>

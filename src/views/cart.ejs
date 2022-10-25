@@ -25,35 +25,39 @@
         <section>
             <% if (cart.Products[0] == null) { %>
                 <article class="cart-empty-product-container">
-
+                    <h3>Vacío</h3>
                 </article>
             <% } else { %>
                 <% cart.Products.forEach(product => { %>
                     <article class="product-container">
                         <section class="sub-container-botonera-container">
-                            <section class="sub-container-1">
+                            <article class="sub-container-1">
                                 <img class="product-img"src="/images/products/<%= product.productImages[0].image_path %>" alt="Producto">
                                 <div class="product-title-off-price-conteiner">
-                                    <h4 class="product-title"><%= product.productBrand.name %></h4>
+                                    <h3 class="product-title"><%= product.productBrand.name %></h3>
                                     <%  if (product.discount_percentage > 0) { %>
                                         <p class="product-off"> <%= product.discount_percentage %>% Off</p>
                                     <% } %>
                                     <p class="product-price-mobile"><%= product.price %></p>
                                 </div>
-                            </section>
-                            <section class="botonera">
+                            </article>
+                            <article class="botonera">
                                 <button><i class="fa-solid fa-trash" id="btn-icon"></i>Eliminar</button>
                                 <button><i class="fa-solid fa-bookmark" id="btn-icon"></i>Agregar a favoritos</button>
-                            </section>
+                            </article>
                         </section>
                         <section class="description-container">
                             <div  class="description-subcontainer">
-                                <p class="title">Color: <%= product.color %> </p>
-                                <p class="value">xxxxx</p>
+                                <p class="title">Color: </p>
+                                <span class="value"><%= product.color %></span>
                             </div>
                             <div class="description-subcontainer">
-                                <p class="title">Talle:</p>
-                                <p class="value">xxxxx</p>
+                                <p class="title">Talle: </p>
+                                <% product.Sizes.forEach(size => { %>
+                                    <% if (size.id == product.CartProducts.selected_size_id) { %>
+                                        <span class="value"><%=size.value + " " + size.type%></span>
+                                    <% } %>
+                                <% }) %>
                             </div>
                             <div class="description-subcontainer">
                                 <p class="title">Cantidad:</p> 
@@ -71,11 +75,39 @@
                         <section class="price-container-desktop">
                             <div class="sub-container-1">
                                 <p class="title">Precio unitario:</p>
-                                <p class="price">$<%= product.price %></p>
+                                <!--If product has %Off-->
+                                <% if (product.discount_percentage > 0) { %>
+                                    <div>
+                                        <!--Price without discount-->
+                                        <p class="price"><del> $<%= product.price %> </del></p>
+
+                                    </div>
+                                    <!--Price with discount-->
+                                    <p class="price-with-discount">
+                                        $<%= product.price - ((product.price * product.discount_percentage) / 100) %> 
+                                    </p>
+                                        
+                                <!--If not-->
+                                <% } else { %>
+                                    <!--Price-->
+                                    <p class="price"> $<%= product.price %> </p>
+                                <% } %>
                             </div>
                             <div class="sub-container-2">
                                 <p class="title">Total:</p>
-                                <p class="total">$<%= product.price %>  </p>
+                                <!--If product has %Off-->
+                                <% if (product.discount_percentage > 0) { %>
+                                    <!--Price with discount-->
+                                    <p class="total">
+                                        $<%= (product.price - ((product.price * product.discount_percentage) / 100)) * product.CartProducts.quantity %> 
+                                    </p>
+                                        
+                                <!--If not-->
+                                <% } else { %>
+                                    <!--Price-->
+                                    <p class="total">$<%= product.price * product.CartProducts.quantity %>  </p>
+                                <% } %>
+                                
                             </div>
                         </section>
                     </article>

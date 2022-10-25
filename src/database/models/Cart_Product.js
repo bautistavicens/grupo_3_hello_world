@@ -17,6 +17,10 @@ module.exports = (sequelize, dataTypes) => {
         quantity:{
             type: dataTypes.SMALLINT(3),
             defaultValue: null,
+        },
+        selected_size_id:{
+            type: dataTypes.SMALLINT(3),
+            notNull: true,
         }
     }
 
