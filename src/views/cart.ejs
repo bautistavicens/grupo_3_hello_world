@@ -41,10 +41,12 @@
                                     <p class="product-price-mobile"><%= product.price %></p>
                                 </div>
                             </article>
-                            <article class="botonera">
-                                <button><i class="fa-solid fa-trash" id="btn-icon"></i>Eliminar</button>
-                                <button><i class="fa-solid fa-bookmark" id="btn-icon"></i>Agregar a favoritos</button>
-                            </article>
+                            <form action="/cart/<%= product.id %>/eliminar?_method=DELETE" method="POST" class="buttons-container">
+                                <article class="botonera">
+                                    <button><i class="fa-solid fa-trash" id="btn-icon"></i>Eliminar</button>
+                                    <button><i class="fa-solid fa-bookmark" id="btn-icon"></i>Agregar a favoritos</button>
+                                </article>
+                            </form>
                         </section>
                         <section class="description-container">
                             <div  class="description-subcontainer">

@@ -38,7 +38,21 @@ const cartController = {
             console.log(error);
             res.send("Ha ocurrido un problema!");
         }
-    }  
+    },
+
+    deleteProduct: async function (req, res){
+        try{
+            const userCartId = req.session.loggedUser.cart_id;
+
+            const productId = req.params.id;
+
+            res.send(productId);
+        }
+        catch(error){
+            console.log(error);
+            res.send("Ha ocurrido un problema!");
+        }
+    }
 }
 
 //Export.
