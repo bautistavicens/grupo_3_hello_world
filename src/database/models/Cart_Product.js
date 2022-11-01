@@ -18,7 +18,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.SMALLINT(3),
             defaultValue: null,
         },
-        selected_size_id:{
+        size_id:{
             type: dataTypes.SMALLINT(3),
             notNull: true,
         }
@@ -32,5 +32,11 @@ module.exports = (sequelize, dataTypes) => {
 
     const Cart_Product = sequelize.define(alias, cols, config);
 
+    Cart_Product.associate = function(models){
+        Cart_Product.belongsTo(models.Sizes,{
+            foreignKey: "size_id",
+            as: "selectedSize"
+        });
+    }
     return Cart_Product;
 }

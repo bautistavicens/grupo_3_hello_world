@@ -32,7 +32,13 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: 'size_id',
             otherKey: 'product_id',
             timestamps: false
-        })
+        });
+
+        //user association with his category
+        Size.hasMany(models.CartProducts,{
+            foreignKey: "size_id",
+            as: "selectedSize"
+       });
 
     }
     return Size;

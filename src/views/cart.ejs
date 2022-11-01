@@ -54,10 +54,10 @@
                             <div class="description-subcontainer">
                                 <p class="title">Talle: </p>
                                 <% product.Sizes.forEach(size => { %>
-                                    <% if (size.id == product.CartProducts.selected_size_id) { %>
+                                    <% if (size.id == product.CartProducts.size_id) { %>
                                         <span class="value"><%=size.value + " " + size.type%></span>
                                     <% } %>
-                                <% }) %>
+                                <% }) %> 
                             </div>
                             <div class="description-subcontainer">
                                 <p class="title">Cantidad:</p> 

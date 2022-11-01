@@ -6,7 +6,7 @@ const CartService = {
 
     getById: async function(id){
         try{
-            let cart = await db.Carts.findByPk(id,
+            const cart = await db.Carts.findByPk(id,
                 {
                     include: [ 
                         {
@@ -23,12 +23,6 @@ const CartService = {
                     ],
                 }
             );
-        
-        cart.Products.forEach(async product => {
-            product.selectedSize = await db.Sizes.findByPk(product.CartProducts.selected_size_id);
-            
-        });
-            
 
         return cart;
 
@@ -40,13 +34,13 @@ const CartService = {
 
     addProduct: async function(cartId, product, quantity, selectedSizeId) {
         try {
-            let cart = await this.getById(cartId);
+            const cart = await this.getById(cartId);
             
             await cart.addProduct(product, 
                 { through: 
                     { 
                         quantity: quantity,
-                        selected_size_id: selectedSizeId
+                        size_id: selectedSizeId
                     }
                 }
             );

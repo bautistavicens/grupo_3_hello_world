@@ -177,6 +177,7 @@ const ProductService = {
         }
        
     },
+
     delete: async function(productId){
         try{
             await db.Product.destroy({
@@ -188,7 +189,26 @@ const ProductService = {
         catch(error){
             console.log(error);
         }
-    } 
+    },
+
+    addToCart: async function(productId, cart, quantity, selectedSizeId) {
+        try {
+            let product = await this.getById(productId);
+            
+            await product.addProduct(cart, 
+                { through: 
+                    { 
+                        quantity: quantity,
+                        selected_size_id: selectedSizeId
+                    }
+                }
+            );
+
+
+        } catch(error) {
+            console.log(error);
+        }
+    }
 }
 
 
