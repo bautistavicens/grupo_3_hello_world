@@ -11,7 +11,7 @@ router.get('/', userRoutes, cartController.display);
 router.get('/:id', userRoutes, cartController.display);
 
 /*+++++++++++++++++++++ Add Product To Cart +++++++++++++++++++++++*/
-router.post('/:id/add', userRoutes, cartController.addProduct);
+router.post('/:id/agregar', userRoutes, cartController.addProduct);
 
 /*+++++++++++++++++++++ Delete Product From Cart +++++++++++++++++++++++*/
 router.delete('/:id/eliminar', userRoutes, cartController.deleteProduct);
