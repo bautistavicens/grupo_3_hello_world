@@ -4,26 +4,33 @@
   <body>
     <%- include('../partials/header') %>
     <%- include('../partials/mobileNavBar') %>
-    <main class="main-product-detail">
+    <main class="product-detail__main">
       <!--Producto-->
-      <section class="product-container">
-        <article class="product-subcontainer-1">
+      <section class="product-detail__product-container">
+        <article class="product-detail__product-container__subcontainer-1">
           <!--Brand name-->
           <h1 class="main-title"> <%= product.productBrand.name %> </h2>
           <!--Image-->
-          <img src="/images/products/<%= product.productImages[0].image_path %>" class="product-image" alt="Zapato"/>
+          <img src="/images/products/<%= product.productImages[0].image_path %>" class="product-detail__product-container__subcontainer-1__product-image"
+           alt="Zapato"/>
         </article>
 
-        <article class="product-subcontainer-2">
-          <section class="buttons-size-section">
-            <form action="/cart/<%= product.id %>/agregar" method="POST" class="add-product-form" enctype="application/json">
+        <article class="product-detail__product-container__subcontainer-2">
+          <section class="product-detail__product-container__subcontainer-2__buttons-size-section">
+            <form action="/cart/<%= product.id %>/agregar" method="POST" class="product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form" 
+            enctype="application/json">
               <!--Buttons - section-->
-              <article class="buttons-section">
-                <input type="number" min="0" max="10" value="1" name="quantity" class="quantity-counter" />
-                <button type="submit" class="add-product-btn">Agregar al carrito</button>
+              <article class="product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__buttons-section">
+                  <select name="quantity" class="product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__buttons-section__select-quantity">
+                    <% [1,2,3,4,5].forEach(number => { %>
+                        <option value=<%= number %> ><%= number %></option>
+                    <% }) %>
+                  </select>
+                <button type="submit" class="product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__buttons-section__add-product-btn">
+                Agregar al carrito</button>
               </article>
               <!--Sizes - section-->
-              <article class="size-section">
+              <article class="product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__size-section">
                 <h4 class="sizes-subtitle"> Talles </h4>
                 <select name="selectedSizeId" id="select-cantidad">
                   <!--forEach -> Sizes -->
@@ -44,7 +51,7 @@
             </form>
           </section>
           <!--Price & Discount - section-->
-          <section class="price-discount-section">
+          <section class="product-detail__product-container__subcontainer-2__price-discount-section">
             <!--If product has %Off-->
             <% if (product.discount_percentage> 0) { %>
               <div>
@@ -55,25 +62,25 @@
                 <p class="discount"> <%= product.discount_percentage %>% Off </p>
               </div>
               <!--Price with discount-->
-              <p class="price-with-discount"> $<%= product.price - ((product.price * product.discount_percentage) / 100) %> </p>
+              <p class="product-detail__product-container__subcontainer-2__price-discount-section__price-with-discount"> $<%= product.price - ((product.price * product.discount_percentage) / 100) %> </p>
             
               <!--If not-->
               <% } else { %>
                 <!--Price-->
-                <p class="normal-price"> $<%= product.price %> </p>
+                <p class="product-detail__product-container__subcontainer-2__price-discount-section__normal-price"> $<%= product.price %> </p>
               <% } %>
           </section>
       
           <!--Color - section-->
-          <section class="color-section">
-            <p class="color"> <%= product.color %> </p>
+          <section class="product-detail__product-container__subcontainer-2__color-section">
+            <p class="product-detail__product-container__subcontainer-2__color-section__color"> <%= product.color %> </p>
           </section>
 
         </article>
-        <article class="product-subcontainer-3">
+        <article class="product-detail__product-container__subcontainer-3">
           <!--Description - section-->
-          <section class="description-section">
-            <p><%= product.description %> </p>
+          <section class="product-detail__product-container__subcontainer-3__description-section">
+            <p class="product-detail__product-container__subcontainer-3__description-section__description"><%= product.description %> </p>
           </section>
         </article>
       </form>
