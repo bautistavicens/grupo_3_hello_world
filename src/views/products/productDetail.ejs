@@ -31,8 +31,8 @@
               </article>
               <!--Sizes - section-->
               <article class="product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__size-section">
-                <h4 class="sizes-subtitle"> Talles </h4>
-                <select name="selectedSizeId" id="select-cantidad">
+                <h4 class="product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__size-section__sizes-subtitle"> Talles </h4>
+                <select name="selectedSizeId" class="product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__size-section__select-quantity">
                   <!--forEach -> Sizes -->
                   <optgroup label="EUR"></optgroup>
                   <% product.Sizes.forEach(size => { %>
@@ -56,7 +56,7 @@
             <% if (product.discount_percentage> 0) { %>
               <div>
                 <!--Price without discount-->
-                <p class="price"><del> $<%= product.price %> </del></p>
+                <p class="product-detail__product-container__subcontainer-2__price-discount-section__price"><del> $<%= product.price %> </del></p>
             
                 <!--%Off-->
                 <p class="discount"> <%= product.discount_percentage %>% Off </p>
@@ -73,7 +73,7 @@
       
           <!--Color - section-->
           <section class="product-detail__product-container__subcontainer-2__color-section">
-            <p class="product-detail__product-container__subcontainer-2__color-section__color"> <%= product.color %> </p>
+            <p class="product-detail__product-container__subcontainer-2__color-section__color"> <strong>Color:</strong> <%= product.color %> </p>
           </section>
 
         </article>

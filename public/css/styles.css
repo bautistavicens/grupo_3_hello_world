@@ -1105,16 +1105,18 @@ a{
 .product-detail__product-container__subcontainer-1__product-image{
     border: #000 1px solid;
     border-radius: 10px;
-    height: 80%;
+    height: 65%;
     padding: 1%;
-    width: 80%;
+    width: 65%;
 }
 
 .product-detail__product-container__subcontainer-2 {
     align-items: center;
     display: flex;
     flex-direction: column;
+    justify-content: space-evenly;
     width: 100%;
+    height: 70%
 }
 .product-detail__product-container__subcontainer-2__buttons-size-section{
     align-items: center;
@@ -1137,6 +1139,7 @@ a{
     flex-direction: row;
     justify-content: space-evenly;
     width: 70%;
+    height: 100%;
 
 }
 .product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__buttons-section__add-product-btn{
@@ -1159,6 +1162,24 @@ a{
     align-items: center;
 }
 
+.product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__size-section__sizes-subtitle{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__size-section__select-quantity{
+    height: 37px;
+    width: 200px;
+}
+
+.product-detail__product-container__subcontainer-2__color-section__color{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+}
+
 .product-detail__product-container__subcontainer-2__price-discount-section {
     align-items: center;
     display: flex;
@@ -1176,9 +1197,16 @@ a{
 
 .product-detail__product-container__subcontainer-2__price-discount-section > div .discount{
     color: #88ec83;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
 }
 .product-detail__product-container__subcontainer-2__price-discount-section > div > p{
     margin: 10px;
+}
+.product-detail__product-container__subcontainer-2__price-discount-section__price{
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 100;
 }
 .product-detail__product-container__subcontainer-2__price-discount-section__normal-price {
     font-weight: bold;
@@ -1186,8 +1214,9 @@ a{
     margin-top: 15px;
 }
 .product-detail__product-container__subcontainer-2__price-discount-section__price-with-discount {
-    font-weight: bold;
-    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 32px;
     margin-top: 7px;
 }
 
@@ -2340,13 +2369,22 @@ footer .copyright-container > small {
     /*productDetail.ejs - START */
     .product-detail__product-container {
         display: grid;
-        grid-template-columns: 50% 50%;
-        grid-template-rows: 80% 20%;
-        width: 100%;
+        grid-template-columns: 50% 50%; 
         height: 70%;
+        row-gap: 7em;
+        width: 100%;
+    }
+    .product-detail__product-container__subcontainer-2 {
+        height: 80%;
+        justify-content: space-around;
     }
     .product-detail__product-container__subcontainer-3 {
+        border-radius: 5px;
+        box-shadow: 0 1px 8px #ddd;
+        border-bottom: 1px black solid;
+        border-top: 1px black solid;
         grid-column: 1/3;
+        text-align: center;
     }
     /*productDetail.ejs - END */
     
@@ -2673,6 +2711,33 @@ footer .copyright-container > small {
 
     /*productDetail.ejs - START */
 
+    .product-detail__product-container{
+        width: 60%;
+    }
+    .product-detail__product-container__subcontainer-1__product-image{
+        height: 80%;
+        width: 80%;
+    }
+    .product-detail__product-container__subcontainer-2{
+        margin-top: 60px;
+    }
+    .product-detail__product-container__subcontainer-2__buttons-size-section{
+       order: 4;
+    }
+    .product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__buttons-section{
+        order: 2;
+    }
+    .product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__size-section__sizes-subtitle{
+        margin-top: 0px;;
+    }
+    .product-detail__product-container__subcontainer-2__buttons-size-section__add-product-form__size-section{
+        margin-bottom: 40px;
+    }
+
+    .product-detail__product-container__subcontainer-2__price-discount-section__price-with-discount {
+        margin-bottom: 15px;
+    }
+
     #product-editBtn-container{
         right: 3%;
     }
@@ -2741,7 +2806,6 @@ footer .copyright-container > small {
         height: 30px;
         width: 160px;
     }
-
     /*usersDetail.ejs - END*/
 
     /*usersList.ejs - START*/
